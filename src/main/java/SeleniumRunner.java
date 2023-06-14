@@ -19,10 +19,10 @@ public class SeleniumRunner {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://github.com");
+        driver.get("https://amazon.com");
 
-        WebElement searchInput = driver.findElement(By.cssSelector("[name='q']"));
-        searchInput.sendKeys("Selenium");
+        WebElement searchInput = driver.findElement(By.cssSelector("#twotabsearchtextbox"));
+        searchInput.sendKeys("Iphone");
         searchInput.sendKeys(Keys.ENTER);
 
         driver.quit();
