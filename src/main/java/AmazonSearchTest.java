@@ -46,9 +46,9 @@ public class AmazonSearchTest {
                 .filter(item -> item.contains(searchPhrase))
                 .collect(Collectors.toList());
 
-        System.out.println(actualItems); // Print out actualItems and expectedItems into the console.
-        System.out.println("=============================>");
-        System.out.println(expectedItems);
+//        System.out.println(actualItems); // Print out actualItems and expectedItems into the console.
+//        System.out.println("=============================>");
+//        System.out.println(expectedItems);
 
         Assertions.assertEquals(expectedItems, actualItems);
     }
