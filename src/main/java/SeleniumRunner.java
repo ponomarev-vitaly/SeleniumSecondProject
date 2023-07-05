@@ -37,7 +37,7 @@ public class SeleniumRunner {
                 .filter(item -> item.contains(searchPhrase))
                 .collect(Collectors.toList());
 
-        System.out.println(actualItems); // Print out actualItems1 and expectedItems1 into the console.
+        System.out.println(actualItems); // Print out actualItems and expectedItems into the console.
         System.out.println("=============================>");
         System.out.println(expectedItems);
 
