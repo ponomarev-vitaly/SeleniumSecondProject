@@ -46,7 +46,7 @@ public class AmazonSearchTest {
         HomePage homePage = new HomePage(driver);
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
 
-        homePage.performSearch(searchPhrase);
+        homePage.searchComponent().performSearch(searchPhrase);
 
         List<String> actualItems = searchResultsPage.searchResultsItemsText();
         List<String> expectedItems = searchResultsPage.searchResultsItemsWithText(searchPhrase);
@@ -73,7 +73,7 @@ public class AmazonSearchTest {
     }
     @AfterAll
     public static void tearDownDriver(){
-        System.out.println(LocalDateTime.now());
+//        System.out.println(LocalDateTime.now());
         driver.quit();
     }
 }
