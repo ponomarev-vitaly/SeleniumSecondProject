@@ -1,6 +1,7 @@
 package components.impl;
 
 import components.WebComponent;
+import entities.SearchResultItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -12,14 +13,24 @@ public class SearchResultItemComponent extends WebComponent {
         super(rootElement);
     }
 
-    public boolean containsSearchPhrase(String searchPhrase){
-        WebElement title = findElement(TITLE_SELECTOR);
-        return containsText(title.getText(), searchPhrase) || containsText(title.getAttribute("href"), searchPhrase);
-//        return containsSearchPhraseIgnoringCase(searchPhrase, TITLE_SELECTOR)
-//                || containsSearchPhraseIgnoringCase(searchPhrase, DESCRIPTION_SELECTOR);
+    public SearchResultItem convertToSearchResultItem(){
+        return new SearchResultItem(
+                retrieveTitle()
+        );
     }
 
-    private boolean containsText(String text, String searchPhrase){return text.toLowerCase().contains(searchPhrase);}
+    private String retrieveTitle() {
+        return findElement(TITLE_SELECTOR).getText().toLowerCase();
+    }
+
+//    public boolean containsSearchPhrase(String searchPhrase){
+//        WebElement title = findElement(TITLE_SELECTOR);
+//        return containsText(title.getText(), searchPhrase) || containsText(title.getAttribute("href"), searchPhrase);
+////        return containsSearchPhraseIgnoringCase(searchPhrase, TITLE_SELECTOR)
+////                || containsSearchPhraseIgnoringCase(searchPhrase, DESCRIPTION_SELECTOR);
+//    }
+
+//    private boolean containsText(String text, String searchPhrase){return text.toLowerCase().contains(searchPhrase);}
 
 //    private boolean containsSearchPhraseIgnoringCase(String searchPhrase, By selector){
 //        return findElement(selector).getText().toLowerCase().contains(searchPhrase);

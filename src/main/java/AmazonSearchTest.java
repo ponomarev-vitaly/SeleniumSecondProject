@@ -1,3 +1,4 @@
+import entities.SearchResultItem;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -48,8 +49,8 @@ public class AmazonSearchTest {
 
         homePage.searchComponent().performSearch(searchPhrase);
 
-        List<String> actualItems = searchResultsPage.searchResultsItemsText();
-        List<String> expectedItems = searchResultsPage.searchResultsItemsWithText(searchPhrase);
+        List<SearchResultItem> actualItems = searchResultsPage.searchResultsItems();
+        List<SearchResultItem> expectedItems = searchResultsPage.searchResultsItemsWithText(searchPhrase);
 
         Assertions.assertEquals(expectedItems, actualItems);
 
