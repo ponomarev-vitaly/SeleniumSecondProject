@@ -6,13 +6,19 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class SearchResultItem {
     private final String title;
+    private final String hrefValue;
 
-    public SearchResultItem(String title) {
+    public SearchResultItem(String title, String hrefValue) {
         this.title = title;
+        this.hrefValue = hrefValue;
     }
 
     public String getTitle() {
         return title;
+    }
+
+    public String getHrefValue() {
+        return hrefValue;
     }
 
     @Override
@@ -23,18 +29,19 @@ public class SearchResultItem {
 
         SearchResultItem that = (SearchResultItem) o;
 
-        return new EqualsBuilder().append(title, that.title).isEquals();
+        return new EqualsBuilder().append(title, that.title).append(hrefValue, that.hrefValue).isEquals();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(title).toHashCode();
+        return new HashCodeBuilder(17, 37).append(title).append(hrefValue).toHashCode();
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .append("title", title)
+                .append("hrefValue", hrefValue)
                 .toString();
     }
 }

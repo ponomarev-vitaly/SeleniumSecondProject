@@ -15,12 +15,17 @@ public class SearchResultItemComponent extends WebComponent {
 
     public SearchResultItem convertToSearchResultItem(){
         return new SearchResultItem(
-                retrieveTitle()
+                retrieveTitle(),
+                retrieveHrefValue()
         );
     }
 
     private String retrieveTitle() {
         return findElement(TITLE_SELECTOR).getText().toLowerCase();
+    }
+
+    private String retrieveHrefValue() {
+        return findElement(TITLE_SELECTOR).getAttribute("href").toLowerCase();
     }
 
 //    public boolean containsSearchPhrase(String searchPhrase){
